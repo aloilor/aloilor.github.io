@@ -114,10 +114,9 @@ analytics:
 # Site Author
 author:
   name             : "Lorenzo Aloisi"
-  avatar           : "/assets/avatar1.jpg"
+  avatar           : "/assets/images/avatar1.jpg"
   bio              : "I am an **amazing** person."
   location         : "Rome, IT"
-  email            : aloisi.lorenzo99@gmail.com
   links:
     - label: "aloisi.lorenzo99@gmail.com"
       icon: "fas fa-fw fa-envelope-square"
