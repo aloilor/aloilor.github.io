@@ -114,32 +114,36 @@ analytics:
 # Site Author
 author:
   name             : "Lorenzo Aloisi"
-  avatar           : "/assets/images/avatar1.jpg"
+  avatar           : "/assets/images/avatar2.jpg"
   bio              : "I am an **amazing** person."
   location         : "Rome, IT"
   links:
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin-in"
+      url: "https://www.linkedin.com/in/aloilor/"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/aloilor"
     - label: "aloisi.lorenzo99@gmail.com"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:aloisi.lorenzo99@gmail.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/aloilor"
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin-in"
-      url: "https://www.linkedin.com/in/aloilor/"
+
 
 # Site Footer
 footer:
   links:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/aloilor"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin-in"
       url: "https://www.linkedin.com/in/aloilor/"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/aloilor"
+    - label: "aloisi.lorenzo99@gmail.com"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:aloisi.lorenzo99@gmail.com"
 
 
 # Reading Files
