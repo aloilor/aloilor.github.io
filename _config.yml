@@ -141,9 +141,6 @@ footer:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/aloilor"
-    - label: "aloisi.lorenzo99@gmail.com"
-      icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:aloisi.lorenzo99@gmail.com"
 
 
 # Reading Files
