@@ -114,7 +114,7 @@ analytics:
 # Site Author
 author:
   name             : "Lorenzo Aloisi"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/avatar1.jpg"
   bio              : "I am an **amazing** person."
   location         : "Rome, IT"
   email            : aloisi.lorenzo99@gmail.com
