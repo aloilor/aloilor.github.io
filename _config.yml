@@ -19,9 +19,9 @@ locale                   : "en-US"
 rtl                      : # true, false (default) # turns direction of the page into right to left for RTL languages
 title                    : "aloilor"
 title_separator          : "-"
-subtitle                 : # site tagline that appears below site title in masthead
+subtitle                 : A chaotic software engineering blog. # site tagline that appears below site title in masthead
 name                     : "Lorenzo Aloisi"
-description              : "An amazing website."
+description              : "A chaotic software engineering blog."
 url                      : "https://aloilor.github.io/" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "aloilor/aloilor.github.io"
