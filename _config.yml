@@ -302,8 +302,9 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: # true
+      comments: false
       share: true
-      related: true
+      related: false
       show_date: true
+      toc: true
 
