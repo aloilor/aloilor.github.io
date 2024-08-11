@@ -115,7 +115,7 @@ analytics:
 author:
   name             : "Lorenzo Aloisi"
   avatar           : "/assets/images/avatar2.jpg"
-  bio              : "Software Engineer on a wild adventure through the maze of LeetCode and system design, with side projects that tend to spiral into chaos"
+  bio              : "Software Engineer on a wild adventure through the maze of LeetCode and system design, with side projects that tend to spiral into chaos."
   location         : "Rome, IT"
   links:
     - label: "LinkedIn"
