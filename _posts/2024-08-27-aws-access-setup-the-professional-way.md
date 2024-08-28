@@ -1,5 +1,5 @@
 ---
-title: "AWS access management setup - the professional way "
+title: "AWS access management setup - the professional way"
 tags:
   - org-formation-cli
   - GitHub Actions

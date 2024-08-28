@@ -9,7 +9,7 @@ Hey there! In the following weeks (most likely months) I'll be using this archiv
 - CI/CD: GitHub Actions
 - IaC: Terraform
 
-## Continuous Integration/Continuous Deployment (CI/CD): GitHub Actions vs GitLab CI/CD vs Circle CI vs AWS Codebuild vs Jenkins
+## CI/CD: GitHub Actions vs GitLab CI/CD vs Circle CI vs AWS Codebuild vs Jenkins
 I will start by crossing out Jenkins from this list since it's difficult to mantain and configure if you're a solo dev (as I am) or a smaller team and it also seems to be really dated. <br>
 AWS Codebuild has to go too, since I want to setup a CI pipeline that's cloud-agnostic: to be tied to a specific cloud provider would be limiting. <br>
 Even though CircleCI seems to be a much more mature product and a better choice because its free tier allows for 6,000 build minutes and 2GB of storage, I'm going to use GHA for simplicity since my repo will be uploaded to GitHub and I probably won't be needing complex enough workflows that justify choosing CircleCI. 
