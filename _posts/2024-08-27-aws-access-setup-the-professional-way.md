@@ -5,6 +5,10 @@ tags:
   - GitHub Actions
   - GHAs
   - CI/CD
+  - AWS IAM
+  - AWS IAM Identity Center
+  - AWS SSO
+  - AWS Organizations
 ---
 
 I'm gonna be using AWS Organizations, IAM Identity Center and org-formation-cli to manage users and access credentials, since the "one root user does it all" formula introduces security vulnerabilities and it isn't really used in production environments. 
@@ -74,8 +78,21 @@ jobs:
         run: org-formation update <Path to organization.yml>
 ```
 
-## SSO setup using IAM Identity Center 
-# TO BE CONTINUED
+# SSO setup through IAM Identity Center 
+I found these two blog posts to be insanely helpful in setting up SSO: [1](https://slaw.securosis.com/p/bring-federation-sso) and [2](https://slaw.securosis.com/p/another-sso-iam-identity-center-part-2). Anyway I'll try to sum them up here, for more detailed information you can just check those. 
+1. Enable IAM Identity Center, along with AWS Organizations
+2. Create a Group inside the IAM IC console (in my case I created the group Developers)
+3. Setup MFA on every sign-in from the Settings -> Authentication tab 
+4. Create a new permission set (PowerUserAccess for Developers in my case)
+5. AWS Accounts -> Assign the role and the permission set to to the organizations account we want to SSO into
+
+## IAM, Organizations and IAM Identity Center
+This is something that really made my head hurt, so I'm going to spend a few words highlighting the differences between these AWS services, specifically on how users are managed between them (and why they are also different between them). Disclaimer: the IAM guide itself suggests to not use IAM Users anymore ([the big red Important rectangle here in the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users.html)), and instead use IAM Identity Center to require users to use federations with an identity provider to access using temporary credentials (SSO). Ok now let's get going: 
+- IAM focuses on managing access within the boundaries of a single account. You could call it a "local" service, IAM Users are confined to the account where they are created, thus IAM operates independently for each AWS account. IAM is not designed to provide centralized user management. 
+<br> <br>
+- Organizations is a service for centralized management of ACCOUNTS (keep in mind this term, since ACCOUNTS and USERS are not the same thing). It focuses on account-level management and does not handle individual identities or users (SPOILER: IAM Identity Center does). <br> <br>
+- IAM Identity Center (previously known as AWS SSO, so the name should already give you a hint on what it's used for) is instead a service for centralized management of USERS (Users created inside IAM IC can access multiple AWS Accounts through a centralized login system - SSO). Multi-account access is possible only through IAM IC and it's not possible through IAM. Identity Center users are managed within IAM IC and are linked to multiple accounts through groups and permissions. What this means in a practical way is that, once an Organization account (or more than one) is associated to a Group + Permission set, using a single IAM IC User with that Group + Permission set, you'll be able to log in into every Organization account with that predefined Group + Permission set.
+
 
 
 
