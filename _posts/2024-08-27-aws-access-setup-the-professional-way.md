@@ -10,7 +10,7 @@ tags:
   - AWS SSO
   - AWS Organizations
 ---
-
+**OUTDATED**: I made a mistake setting up OrgFormation for my CI/CD pipeline, Terraform does it all. <br> <br>
 I'm gonna be using AWS Organizations, IAM Identity Center and org-formation-cli to manage users and access credentials, since the "one root user does it all" formula introduces security vulnerabilities and it isn't really used in production environments. 
 
 # OrgFormation vs AWS Control Tower
