@@ -77,17 +77,17 @@ To conform to security best practices I decided to adopt the OIDC + IAM Role to 
 - OIDC and dedicated IAM role - you can check out these two guides to set this up: [GitHub docs](https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services) and [AWS docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html#idp_oidc_Create_GitHub). 
 
 ## Pipeline 
-This is what my GitHub Actions pipeline file looks like:
+This is what my GitHub Actions pipeline file looks like, keep in mind that every expression has been replaced with $[  ] to make sure that the environment variables don't get processed by GitHub: 
 
 ```yaml
 name: "Terraform CI/CD pipeline"
 
 env:
-  ROLE_TO_ASSUME: ${{ secrets.ROLE_TO_ASSUME}} 
-  AWS_REGION: ${{ secrets.AWS_REGION}} 
+  ROLE_TO_ASSUME: $[ secrets.ROLE_TO_ASSUME ] 
+  AWS_REGION: $[ secrets.AWS_REGION ] 
 
   # S3 bucket for the Terraform state
-  BUCKET_TF_STATE: ${{ secrets.BUCKET_TF_STATE}} 
+  BUCKET_TF_STATE: $[ secrets.BUCKET_TF_STATE ] 
 
   # verbosity setting for Terraform logs
   TF_LOG: INFO
@@ -127,8 +127,8 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: ${{ env.ROLE_TO_ASSUME }}
-          aws-region: ${{ env.AWS_REGION }}
+          role-to-assume: $[ env.ROLE_TO_ASSUME ]
+          aws-region: $[ env.AWS_REGION ]
           role-session-name: Terraform-GitHub
       
       - name: Setup Terraform with specified version on the runner
@@ -157,13 +157,13 @@ jobs:
       - uses: actions/github-script@v6
         if: github.event_name == 'pull_request'
         env:
-          PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
+          PLAN: "terraform\n$[ steps.plan.outputs.stdout ]"
         with:
           script: |
-            const output = `#### Terraform Format and Style 🖌\`${{ steps.fmt.outcome }}\`
-            #### Terraform Initialization ⚙️\`${{ steps.init.outcome }}\`
-            #### Terraform Validation 🤖\`${{ steps.val.outcome }}\`
-            #### Terraform Plan 📖\`${{ steps.plan.outcome }}\`
+            const output = `#### Terraform Format and Style 🖌$[ steps.fmt.outcome ]\
+            #### Terraform Initialization ⚙️$[ steps.init.outcome ]\
+            #### Terraform Validation 🤖$[ steps.val.outcome ]\
+            #### Terraform Plan 📖$[ steps.plan.outcome ]\
   
             <details><summary>Show Plan</summary>
   
@@ -172,7 +172,7 @@ jobs:
             \`\`\`
   
             </details>
-            *Pushed by: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
+            *Pushed by: @$[ github.actor ], Action: \`$[ github.event_name ]\`*`;
   
             github.rest.issues.createComment({
               issue_number: context.issue.number,
@@ -188,6 +188,7 @@ jobs:
       - name: Terraform apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform apply -auto-approve -input=false
+
 ```
 Basically what happens with this workflow is the following: when submitting a pull-request, ```terraform plan```, along with a script that shows its result, get executed. When the PR gets accepted, ```terraform apply``` will be executed, applying the changes highlighted by the previous step. 
 
