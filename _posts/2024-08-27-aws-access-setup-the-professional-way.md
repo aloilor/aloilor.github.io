@@ -1,14 +1,8 @@
 ---
 title: "AWS access management setup - the professional way"
 tags:
-  - org-formation-cli
-  - GitHub Actions
-  - GHAs
+  - AWS
   - CI/CD
-  - AWS IAM
-  - AWS IAM Identity Center
-  - AWS SSO
-  - AWS Organizations
 ---
 **OUTDATED**: I made a mistake setting up OrgFormation for my CI/CD pipeline, Terraform does it all. <br> <br>
 I'm gonna be using AWS Organizations, IAM Identity Center and org-formation-cli to manage users and access credentials, since the "one root user does it all" formula introduces security vulnerabilities and it isn't really used in production environments. 

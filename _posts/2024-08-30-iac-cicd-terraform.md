@@ -1,6 +1,7 @@
 ---
 title: "IaC and CI/CD: Terraform"
 tags:
+  - AWS
   - CI/CD
   - IaC
   - Terraform
