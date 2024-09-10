@@ -10,7 +10,7 @@ Hey there! For the actual app development part, I'm going to build something I a
 # Language: Python
 This is a forced choice: Python is hands down the best programming language for web scraping. 
 
-# Scraping: requests vs curl-cffi vs Scrapy 
+# Scraping: requests
 Since I'm going to be making simple GET requests to the publishers' websites and they don't seem to block me if I use Python's library ```requests```, there is really no need for me to use more complex and advanced tools like curl-cffi or Scrapy. I'm also going to be using BeatifulSoup to parse the HTML pages I will get. 
 
 # TDD: pytest and unittest.mock
