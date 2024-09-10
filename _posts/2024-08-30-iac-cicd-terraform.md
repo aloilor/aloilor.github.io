@@ -23,6 +23,8 @@ These two videos ([1](https://www.youtube.com/watch?v=l5k1ai_GBDE&t=416s), [2](h
 6. CI for TF Code (write Tests too)
 7. Apply TF ONLY through CD pipeline
 
+As a rule of thumb I would also like to store separate repos containing Terraform files - i.e. one for pure Infrastructure stuff and one for Dev AND Infra (kind of) stuff (mainly deployment on AWS of the app code). In other words, I'll be using two repos, one for the app code and one for all of the Infrastructure stuff with Terraform. 
+
 # Terraform configuration
 I'm not going to explain every step needed to setup Terraform, since there already are lots of good resources on how to do that ([e.g.](https://www.youtube.com/watch?v=7xngnjfIlK4)), but in the following section I will add my main configuration file, to show you what a super basic configuration should look like: 
 ```tf 
