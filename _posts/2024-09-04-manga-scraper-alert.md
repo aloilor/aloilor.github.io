@@ -17,11 +17,12 @@ Since I'm going to be making simple GET requests to the publishers' websites and
 I'm going to be following a Test Driven Development approach, using pytest and unittest.mock to properly test every functionality of the application. I will aim to have at least 85% code coverage.
 
 # Database: SQL 
-No need to use a NoSQL database, I'll use a relational database with something like PostgreSQL or SQLite as DBMS. The following are the tables I'm probably going to need to setup the application: 
+No need to use a NoSQL database, I'll use a relational database with something like PostgreSQL, MySQL or SQLite as DBMS. The following are the tables I'm probably going to need to setup the application: 
 
 **Subscribers table - subscribers**
 - id (Primary Key)
 - email_address (string)
+- subscriptions (string)
 
 **Manga Releases table - manga_releases**
 - id (Primary Key)
@@ -32,5 +33,6 @@ No need to use a NoSQL database, I'll use a relational database with something l
 - alert_sent (boolean, to track whether an alert has already been sent for this release)
 
 # System design: serverless event-driven vs server-based polling system
+You could argue that a classic server-based polling system would be highly inefficient compared to a serverless event-driven approach, that uses AWS RDS events to trigger email alerts only when changes on the Database happen; and you are 100% right. In the classic approach the EC2 instance would be waiting for most of the time and would poll the database every [x] (probably 6 or something, I'm still not sure) hours, but still I'm going to use this approach for two main reasons: I want to learn how to deploy and orchestrate Docker containers using AWS ECS and EC2 and also I already know how to use AWS Lambdas in production environments so the serverless approach wouldn't be really interesting from a "learning perspective".
 
 # TO BE CONTINUED 
