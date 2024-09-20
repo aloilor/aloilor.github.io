@@ -33,6 +33,10 @@ No need to use a NoSQL database, I'll use a relational database with something l
 - alert_sent (boolean, to track whether an alert has already been sent for this release)
 
 # System design: serverless event-driven vs server-based polling system
-You could argue that a classic server-based polling system would be highly inefficient compared to a serverless event-driven approach, that uses AWS RDS events to trigger email alerts only when changes on the Database happen; and you are 100% right. In the classic approach the EC2 instance would be waiting for most of the time and would poll the database every [x] (probably 6 or something, I'm still not sure) hours, but still I'm going to use this approach for two main reasons: I want to learn how to deploy and orchestrate Docker containers using AWS ECS and EC2 and also I already know how to use AWS Lambdas in production environments so the serverless approach wouldn't be really interesting from a "learning perspective".
+You could argue that a classic server-based polling system would be highly inefficient compared to a serverless event-driven approach, that uses AWS RDS events to trigger email alerts only when changes on the Database happen; and you are 100% right. In the classic approach the EC2 instance would be waiting for most of the time and would poll the database every [x] (probably 6 or something, I'm still not sure) hours, but still I'm going to use this approach for two main reasons: I want to learn how to deploy and orchestrate Docker containers using AWS ECS and also I already know how to use AWS Lambdas in production environments so the serverless approach wouldn't be really interesting from a "learning perspective".
 
-# TO BE CONTINUED 
+# cron, Docker and ECS
+I'm going to build both the scraper and the email alerter as cron jobs that run on Docker container through AWS ECS. I'll probably write another blog post on that, since it's going to be quite a long task.
+
+# TO BE CONTINUED - Logging and monitoring: AWS CloudWatch and Python's logging module
+
