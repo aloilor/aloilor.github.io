@@ -22,7 +22,7 @@ No need to use a NoSQL database, I'll use a relational database with something l
 **Subscribers table - subscribers**
 - id (Primary Key)
 - email_address (string)
-- subscriptions (string)
+- subscriptions (string) -- NORMALIZED IN ANOTHER TABLE
 
 **Manga Releases table - manga_releases**
 - id (Primary Key)
@@ -32,11 +32,17 @@ No need to use a NoSQL database, I'll use a relational database with something l
 - publisher (string)
 - alert_sent (boolean, to track whether an alert has already been sent for this release)
 
+**Subscribers' subscriptions table -- subscribers_subscriptions**
+- subscriber_id (integer)
+- manga_title (string)
+
+I decided to normalize the ```subscriptions``` field from the table ```subscribers``` to make everything cleaner, and also to make queries more efficient: at each new manga release I'm going to query the database searching for subscribers to that manga title so having a whole new column with the manga titles associated to a subscriber will make thing a lot cleaner and easier. 
+
 # System design: serverless event-driven vs server-based polling system
 You could argue that a classic server-based polling system would be highly inefficient compared to a serverless event-driven approach, that uses AWS RDS events to trigger email alerts only when changes on the Database happen; and you are 100% right. In the classic approach the EC2 instance would be waiting for most of the time and would poll the database every [x] (probably 6 or something, I'm still not sure) hours, but still I'm going to use this approach for two main reasons: I want to learn how to deploy and orchestrate Docker containers using AWS ECS and also I already know how to use AWS Lambdas in production environments so the serverless approach wouldn't be really interesting from a "learning perspective".
 
 # cron, Docker and ECS
-I'm going to build both the scraper and the email alerter as cron jobs that run on Docker container through AWS ECS. I'll probably write another blog post on that, since it's going to be quite a long task.
+I'm going to build both the scraper and the email alerter as cron jobs (ECS Scheduled Task) that run on Docker container through AWS ECS. I'll probably write another blog post on that, since it's going to be quite a long task.
 
 # TO BE CONTINUED - Logging and monitoring: AWS CloudWatch and Python's logging module
 
