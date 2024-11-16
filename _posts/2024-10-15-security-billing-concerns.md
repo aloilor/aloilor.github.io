@@ -1,5 +1,5 @@
 ---
-title: "Security concerns over Internet access"
+title: "Security and billing concerns over Internet access"
 tags:
   - AWS
 ---

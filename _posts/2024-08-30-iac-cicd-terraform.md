@@ -194,5 +194,3 @@ jobs:
 
 ```
 Basically what happens with this workflow is the following: when submitting a pull-request, ```terraform plan```, along with a script that shows its result, get executed. When the PR gets accepted, ```terraform apply``` will be executed, applying the changes highlighted by the previous step. 
-
-# TO BE CONTINUED WITH SCANNING AND LINTING TOOLS

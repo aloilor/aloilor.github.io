@@ -17,7 +17,7 @@ Now this is going to be a choice based purely on how much money I'm going to spe
 There's also the Fargate + ECS Scheduled Task triggered by AWS EventBridge: the effective runtime would be significantly lower because the app wouldn't be always running, but still I would be billed for it and it would be > 0, so I will probably still go with the EC2 deployment option and I would use the event-based option only in case of necessity. 
 
 ## ECS: EC2 and EventBridge Scheduler
-Finally I decided to use the following approach: an EC2 instance running hosting both the frontend and the backend, and two ECS Scheduled Task that get triggered every 6 hours for the email alerter and the scraper services.
+Finally I decided to use the following approach: an EC2 instance running hosting the backend, and two ECS Scheduled Task that get triggered every 6 hours on that same EC2 for the email notifier and the scraper services.
 
 ## ECS Task Execution vs Task vs Instance (roles) 
 Ok this is kinda tricky. To define the cluster and its instances I had to understand the difference between these three roles. 
@@ -35,10 +35,10 @@ To provide internet access I had to switch to bridge network mode, where ECS tas
 
 
 # ASG and ELB:
-One could argue that an Auto Scaling Group and a Load Balancer are useless if provided with just one EC2 instance, but that's not entirely true. The ASG will terminate the instance if it's unhealthy (aka fails) and replace it with a new one. 
+One could argue that an Auto Scaling Group and a Load Balancer are useless if provided with just one EC2 instance, but that's not entirely true. The ASG will terminate the instance if it's unhealthy (aka fails) and replace it with a new one. Instead I'm not going to use an ELB because it's because it's pricy (I know about the 750 hours by the free tier for the first 12 months but still I want to make this "long-term", in a sense that in a year from now I would like to still be able to use my application without high maintenance costs) and the workload I expect my app to be able to handle doesn't really justify it that much. 
 
 
-# Passing secrets: AWS Secrets Manager
+# Storing secrets: AWS Secrets Manager
 Since I'm going to need to access my database from each container, I'm going to use AWS Secrets Manager to handle the retrieval of the keys from the ECS instances. 
 
 # TO BE CONTINUED: Rolling Deployments

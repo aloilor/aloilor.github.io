@@ -5,7 +5,7 @@ tags:
   - TDD
 ---
 
-Hey there! For the actual app development part, I'm going to build something I always needed and that I could't ever find on the internet: an email alert application that notifies me whenever a new physical release of the mangas I'm following is going to come out soon. This app is going to scrape a set of predefined websites (only the official publishers of the italian releases of those mangas) and send an email to every address in the database with the release date of the new volume. 
+Hey there! I'm going to build something I always needed and that I could't ever find on the internet: an email alert application that notifies me whenever a new physical release of the mangas I'm following is going to come out soon. This app is going to scrape a set of predefined websites (only the official publishers of the italian releases of those mangas) and send an email to every address in the database with the release date of the new volume. 
 
 # Language: Python
 This is a forced choice: Python is hands down the best programming language for web scraping. 
