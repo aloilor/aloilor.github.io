@@ -4,7 +4,7 @@ tags:
   - AWS
   - Docker
   - Rolling deployments
-  - Manga-Alert-Italia
+  - Manga Alert Italia
 
 ---
 

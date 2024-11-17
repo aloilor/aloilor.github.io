@@ -2,7 +2,7 @@
 title: "Security and billing concerns over Internet access"
 tags:
   - AWS
-  - Manga-Alert-Italia
+  - Manga Alert Italia
 ---
 
 Hey there! In this post I'm going to talk about the security concerns I encountered when designing the main backend and frontend of the application (especially the frontend part which allowed user input). 
