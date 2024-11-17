@@ -2,6 +2,7 @@
 title: "A CI/CD fresh start"
 tags:
     - AWS
+    - Manga-Alert-Italia
 ---
 
 Hey there! In the following weeks (most likely months) I'll be using this archive to document a side project of mine. I will implement a CI/CD production environment, along with all the DevOps magic, Infrastructure as Code (IaC), container orchestration and monitoring/logging/alerting systems (I bet I forgot something). The goal is to have a fully functional, automated production environment ready to use anytime. 

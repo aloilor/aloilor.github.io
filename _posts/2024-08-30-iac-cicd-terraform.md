@@ -5,6 +5,7 @@ tags:
   - CI/CD
   - IaC
   - Terraform
+  - Manga-Alert-Italia
 ---
 
 Hey there! In this post I'm going to talk about how I set up my Terraform pipeline for automated IaC, using GitHub Actions. 

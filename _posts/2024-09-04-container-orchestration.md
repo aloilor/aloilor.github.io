@@ -4,6 +4,8 @@ tags:
   - AWS
   - Docker
   - Rolling deployments
+  - Manga-Alert-Italia
+
 ---
 
 Hey there! In this blog post I'm going to talk about my design choices abouth container orchestration and Network setup in the cloud.
