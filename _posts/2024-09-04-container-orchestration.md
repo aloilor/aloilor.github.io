@@ -43,4 +43,5 @@ One could argue that an Auto Scaling Group and a Load Balancer are useless if pr
 # Storing secrets: AWS Secrets Manager
 Since I'm going to need to access my database from each container, I'm going to use AWS Secrets Manager to handle the retrieval of the keys from the ECS instances. 
 
-# TO BE CONTINUED: Rolling Deployments
+# Rolling Deployments
+I actually wanted to implement a solution using Rolling Deployments for the main Flask backend, to ensure 100% service uptime. Problem is that if a Docker container has already mapped some port on the underlying hosting machine, no other container with those same ports mappings can be spawned on that same machine. So I guess it's a no-no for Rolling Deployments unfortunately. It's a shame since they're also really easy to implement but nevermind :( .
