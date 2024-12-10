@@ -32,6 +32,10 @@ This is a bit trickier but nothing too fancy, just a trigger that prevents inser
 # Minimal permissions for the ECS instances
 Since ECS instances are accessible by the whole internet I need to make sure that they have minimal permissions, just the ones for the resources they actually need to function. 
 
+# Change Flask into a production server (Gunicorn)
+The title is quite self-explanatory, Flask is just a development server, Gunicorn is more secure and has better performance, so I'm going to switch to it before finally hosting publicly. 
 
+# Access to the S3 Bucket only through the Cloudfront CDN
+This is pretty straightforward: I don't want everyone on the internet to be able to access the S3 bucket on which I'm  statically hosting my website, I will make it so that only the CDN can access it. I'm using Origin Access Control and I'm blocking ALL public access on the S3 bucket. 
 
 
