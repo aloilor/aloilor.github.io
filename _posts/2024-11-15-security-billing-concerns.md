@@ -38,4 +38,6 @@ The title is quite self-explanatory, Flask is just a development server, Gunicor
 # Access to the S3 Bucket only through the Cloudfront CDN
 This is pretty straightforward: I don't want everyone on the internet to be able to access the S3 bucket on which I'm  statically hosting my website, I will make it so that only the CDN can access it. I'm using Origin Access Control and I'm blocking ALL public access on the S3 bucket. 
 
+# Publicly accessible repository
 
+### 1. Github Actions Secrets
