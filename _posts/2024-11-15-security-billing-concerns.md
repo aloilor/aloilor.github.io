@@ -40,4 +40,20 @@ This is pretty straightforward: I don't want everyone on the internet to be able
 
 # Publicly accessible repository
 
-### 1. Github Actions Secrets
+### 1. Github Actions: Secrets
+GHAs secrets shouldn't be a problem, since I don't have hardcoded credentials in there because I'm using OpenID Connect to access resources in AWS. 
+
+### 2. Github Actions: OpenID Connect
+![](https://docs.github.com/assets/cb-63262/mw-1440/images/help/actions/oidc-architecture.webp)
+For this one I need to make a more thorough analysis, to check if making the repo public could result in security concerns: the documentation states that 
+> Before granting an access token, your cloud provider checks that the subject and other claims used to set conditions in its trust settings match those in the request's JSON Web Token (JWT). As a result, you must take care to correctly define the subject and other conditions in your cloud provider.  
+
+so I'm quite interested in the `subject` field and how the JWT is composed.
+- The JWT cannot be crafted, since it's signed by GitHub OIDC Provider and then that sign is verified by AWS before granting the Access Token, so I can say that I'm secure in that way.  
+- The `subject` of the Trust Relationship is `"repo:aloilor/MangaAlertItalia:ref:refs/heads/main"` and it's correct, it means that AWS will grant the Access Token only to requests coming from workflows from that specific repo and branch.   
+Ideally anyone should be able to create Pull Requests to main, so I need to be extra careful in defining what triggers my CI/CD pipelines. The only pipeline that actually could be a problem is the Terraform one, since at every PR to the main a `terraform plan` gets executed, but the `plan` command doesn't really affect the cloud infrastructure, so I'm safe here too: `terraform apply` is executed only when pushing on the main branch, and that can be done just by the repository owner. 
+
+
+
+
+
