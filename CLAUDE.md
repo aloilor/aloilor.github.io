@@ -36,3 +36,12 @@ bundle exec jekyll build  # one-off build into _site/
 - `Rakefile` is **upstream theme tooling** (regenerates copyright headers, minifies JS into `assets/js/main.min.js` via `uglify-js`, builds theme docs). It is not needed to author posts or run the site locally; only relevant if modifying the theme's bundled JavaScript.
 - `staticman.yml` and the `comments:` block configure Staticman-based comments, but comments are currently **disabled** (`comments.provider` is unset in `_config.yml`, and post defaults set `comments: false`).
 - `.travis.yml` references an Algolia docs-indexing job for the upstream theme and is not part of this site's deployment.
+
+## Self-Improvement Loop
+
+- Keep shared agent lessons in `.agents/lessons/`, one short descriptive file per lesson (e.g. `.agents/lessons/avoid-broad-git-add.md`). Never keep a single `lessons.md`.
+- After a user correction, first update the authoritative agent prompt, workflow, guideline, project context, or other policy source when the rule belongs there. Create or update a lesson automatically only for a reusable agent-behavior mistake that has no better canonical owner; never duplicate established policy in lessons.
+- Do not add lessons for one-off task details that will not prevent a repeatable mistake.
+- Each lesson file states the mistake pattern and the rule that prevents repeating it.
+- Keep `.agents/lessons/LESSONS.md` as an index: one clickable markdown link per lesson file followed by a one-line summary. Add a matching entry whenever you add a lesson.
+- Review the lessons index and relevant linked files at the start of each session, and iterate on lessons until the mistake rate drops.
