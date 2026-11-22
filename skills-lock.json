@@ -1,23 +1,12 @@
 {
-  "version": 1,
+  "version": 2,
   "skills": {
-    "create-readme": {
-      "source": "github/awesome-copilot",
+    "git-conventional-commit": {
+      "source": "aloilor/lean-coding-agent",
+      "commit": "32129fa815bf11b37aab1b6def738b313c73f45b",
       "sourceType": "github",
-      "skillPath": "skills/create-readme/SKILL.md",
-      "computedHash": "d0ece1b2164ce1376e4ab6e98d6ac079df3a2a94f5f02224362b6a1ce2516ae9"
-    },
-    "git-commit": {
-      "source": "github/awesome-copilot",
-      "sourceType": "github",
-      "skillPath": "skills/git-commit/SKILL.md",
-      "computedHash": "2607fc60629b82b257136dd2a7a373f0a4466c0b49df7746d845d59313c99b21"
-    },
-    "humanizer": {
-      "source": "blader/humanizer",
-      "sourceType": "github",
-      "skillPath": "SKILL.md",
-      "computedHash": "3479992308a89a652bd1e12d0f612dd00d02d845e166ab51f0caaafc9300a5e7"
+      "skillPath": "skills/git-conventional-commit/SKILL.md",
+      "computedHash": "575e943db1edb22729f08944867c0ddfc0800976c772c16fca4befa0aac24def"
     }
   }
 }

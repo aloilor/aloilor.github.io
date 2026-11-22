@@ -1,0 +1,4 @@
+interface:
+  display_name: "Git Conventional Commit"
+  short_description: "Create safe conventional commits and push on request"
+  default_prompt: "Use $git-conventional-commit to inspect the worktree, create the intended Conventional Commit or commits safely, and push only if asked."
