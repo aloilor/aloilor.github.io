@@ -10,13 +10,13 @@ search: false
 
 // Smaller base font size (theme default: 16px / 18px / 20px)
 html {
-  font-size: 15px;
+  font-size: 14px;
 
   @include breakpoint($medium) {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   @include breakpoint($large) {
-    font-size: 17px;
+    font-size: 15px;
   }
 }
