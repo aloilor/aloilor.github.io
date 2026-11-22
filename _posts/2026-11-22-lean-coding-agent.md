@@ -3,6 +3,11 @@ title: "I built lean coding agent workflows because popular frameworks are bloat
 tags:
   - AI
   - Coding Agents
+  - Claude Code
+  - Codex
+  - Subagents
+  - TDD
+  - Code Review
 ---
 
 Coding agents tend to either skip planning entirely or bury every small request in ceremony. [Lean Coding Agent](https://github.com/aloilor/lean-coding-agent) gives Codex and Claude Code a **plan → test-first implementation → independent review** loop that runs only when you ask for it. A separate subagent handles each step in its own context.
@@ -61,9 +66,9 @@ Separate contexts need a shared record, so each workflow writes files:
 
 These files survive context compaction and new sessions. If a session dies halfway, the next one reads the plan and the last review instead of starting over.
 
-## Strong models plan and review, fast models implement
+## Strong models plan and review, cheap models implement
 
-By default, the expensive models do the work that needs judgment, and cheap models do the execution. Strong models plan and review at low reasoning effort. Fast models diagnose, implement, and look up facts at high effort.
+By default, the expensive models do the work that needs judgment, and cheap models do the execution. Strong models plan and review at low reasoning effort. Cheap models diagnose, implement, and look up facts at high effort.
 
 | Subagent | Claude Code | Codex |
 | --- | --- | --- |
@@ -73,7 +78,7 @@ By default, the expensive models do the work that needs judgment, and cheap mode
 | `implementer` | `haiku`, xhigh | `gpt-6-luna`, xhigh |
 | `explorer` | `haiku`, high | `gpt-6-luna`, high |
 
-A fast implementer sounds risky, but by the time it runs, the hard decisions are made. You approved the plan. The tests define "done". A stronger model reviews the result. What's left is careful execution, and a fast model at high effort does that for a fraction of the cost. If your codebase needs more judgment at implementation time, you pick a stronger implementer during setup.
+A cheap implementer sounds risky, but by the time it runs, the hard decisions are made. You approved the plan. The tests define "done". A stronger model reviews the result. What's left is careful execution, and a cheap model at high effort does that for a fraction of the cost. If your codebase needs more judgment at implementation time, you pick a stronger implementer during setup.
 
 The planner runs at low effort for a different reason. Planning is interactive. You answer its questions, so fast turns matter more than long solo thinking.
 
