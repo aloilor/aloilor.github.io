@@ -1,12 +1,26 @@
 {
   "version": 2,
   "skills": {
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "commit": "57217cf86ba38148a57af9e90d14a4c049558330",
+      "sourceType": "github",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "computedHash": "7bc223e2aafbdbf6e50ea243ba6ef67fe432bb069ab439fea0390795dac0bf7f"
+    },
     "git-conventional-commit": {
       "source": "aloilor/lean-coding-agent",
       "commit": "32129fa815bf11b37aab1b6def738b313c73f45b",
       "sourceType": "github",
       "skillPath": "skills/git-conventional-commit/SKILL.md",
       "computedHash": "575e943db1edb22729f08944867c0ddfc0800976c772c16fca4befa0aac24def"
+    },
+    "technical-writing": {
+      "source": "cursor/plugins",
+      "commit": "7a583913eb1b8d1a0ee76753d1a2cf072e7b54f9",
+      "sourceType": "github",
+      "skillPath": "harness/pstack/claude-code/skills/technical-writing/SKILL.md",
+      "computedHash": "4a8b50628c064dc9cd1c6e7d4e7325c21ffd3572f52775d3a0381fd8a69259f7"
     }
   }
 }
