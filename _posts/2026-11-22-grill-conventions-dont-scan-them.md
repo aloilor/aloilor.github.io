@@ -68,9 +68,7 @@ The case against generated context files is fairly strong:
 - Lulla et al. ([arXiv:2601.20404](https://arxiv.org/abs/2601.20404)) found 28.64% lower median runtime and 16.58% fewer output tokens with developer-written `AGENTS.md` files, with similar completion rates.
 - Addy Osmani, in [*Stop Using /init for AGENTS.md*](https://addyosmani.com/blog/agents-md/), recommends that you include only what an agent can't discover from the code.
 
-The case *for* grilled conventions is weaker, and I want to be honest about it. These studies measure context files in general, mostly on Python bug fixes. None of them tests conventions written by interview. A third study, [*Do Context Files Help Coding Agents?*](https://huggingface.co/papers/2607.27250), found no measurable change in correctness across 288 runs. The claim that normative rules improve code quality is my premise, not a finding.
-
-What the evidence does support is the direction. Files that read like a developer wrote them beat files that read like a scan. Asking a person is the most direct way to get there.
+None of these studies tests conventions written by interview, so treat the case for this skill as a direction, not a result.
 
 ## Why this matters
 
