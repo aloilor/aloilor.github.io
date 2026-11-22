@@ -1,5 +1,5 @@
 ---
-title: "I built lean coding agent workflows because popular frameworks are bloated token sinks"
+title: "I built lean coding agent workflows because popular frameworks can be slow and token-hungry"
 tags:
   - AI
   - Coding Agents
@@ -10,7 +10,7 @@ tags:
   - Code Review
 ---
 
-Coding agents tend to either skip planning entirely or bury every small request in ceremony. [Lean Coding Agent](https://github.com/aloilor/lean-coding-agent) gives Codex and Claude Code a **plan → test-first implementation → independent review** loop that runs only when you ask for it. A separate subagent handles each step in its own context.
+Popular coding agent frameworks can be slow and token-hungry: huge ceremony fills the context on every request, and even a one-line fix goes through a full plan-and-review loop. In my experience, newer models don't need that much handholding and that many guardrails. Without a framework, agents tend to skip planning entirely. [Lean Coding Agent](https://github.com/aloilor/lean-coding-agent) gives Codex and Claude Code a **plan → test-first implementation → independent review** loop that runs only when you ask for it. A separate subagent handles each step in its own context.
 
 Predefined workflows set the loop and its stop conditions without scripting every move. Each subagent prompt is at most 135 lines. The `define-conventions` skill captures your project's rules. Those rules follow progressive disclosure: instead of piling everything into `AGENTS.md`, agents load each convention file by topic only when a task needs it. The always-loaded baseline stays under 800 words, and each workflow stays under 450.
 
