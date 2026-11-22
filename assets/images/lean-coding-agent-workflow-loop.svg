@@ -77,7 +77,7 @@
     <text x="305" y="318" font-size="12" fill="#8b949e">before this</text>
 
     <text x="495" y="285" font-size="15" font-weight="700" fill="#3fb950">Implement</text>
-    <text x="495" y="304" font-size="12" fill="#8b949e">fast model, test-first</text>
+    <text x="495" y="304" font-size="12" fill="#8b949e">cheap model, test-first</text>
     <text x="495" y="318" font-size="12" fill="#8b949e">one behavior at a time</text>
 
     <text x="685" y="285" font-size="13" font-weight="700" fill="#d2a8ff">Independent review</text>
