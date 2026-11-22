@@ -61,9 +61,9 @@ Separate contexts need a shared record, so each workflow writes files:
 
 These files survive context compaction and new sessions. If a session dies halfway, the next one reads the plan and the last review instead of starting over.
 
-## Models follow the work
+## Strong models plan and review, fast models implement
 
-The defaults spend on judgment and save on execution. Strong models plan and review at low reasoning effort. Fast models diagnose, implement, and look up facts at high effort.
+By default, the expensive models do the work that needs judgment, and cheap models do the execution. Strong models plan and review at low reasoning effort. Fast models diagnose, implement, and look up facts at high effort.
 
 | Subagent | Claude Code | Codex |
 | --- | --- | --- |
