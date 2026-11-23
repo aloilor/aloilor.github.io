@@ -16,13 +16,11 @@ On my Windows machine, two entries stood out:
 - **`Artifact`**, the tool that publishes HTML pages to claude.ai. Its description is long, and it brings a set of skills with it: design guidance, diagramming, and runtime capabilities. Each skill adds a listing line to every session.
 - **`PowerShell`**, a second shell tool next to `Bash`. Claude Code on Windows loads both, each with its own description and its own syntax rules.
 
-<!-- TODO: add before and after token counts from /context -->
-
 I write code in these sessions. I don't publish web pages from them, and I don't want two shells.
 
 ## A deny rule removes the tool, not only the permission
 
-A rule in `permissions.deny` that names a whole tool does more than block calls. Claude Code drops the tool from the session, so its definition never reaches the model. The skills that exist to serve that tool lose their reason to load.
+A rule in `permissions.deny` that names a whole tool does more than block calls. Claude Code drops the tool from the session, so its definition never reaches the model.
 
 Here is the block I add to `.claude/settings.json` in each project:
 
@@ -38,6 +36,21 @@ Here is the block I add to `.claude/settings.json` in each project:
 ```
 
 Merge it with any deny rules you already have. Don't replace them.
+
+## The denies cut 12.4k tokens before the first prompt
+
+I ran `/context` in a fresh interactive session on Opus 5.5, once with the two denies and once without:
+
+| Category | Without denies | With denies |
+| --- | --- | --- |
+| System tools | 20.2k | 8.2k |
+| System prompt | 4.5k | 4.2k |
+| Skills | 5.5k | 5.5k |
+| **Total** | **33.6k** | **21.2k** |
+
+The starting context drops by 37%, and almost all of the saving comes from tool definitions. The skills row doesn't move. The `artifact-design`, `artifact-diagramming`, and `artifact-capabilities` listings still load, at about 390 tokens together. A deny rule removes the tool, not the skills that describe it.
+
+The saving applies only to interactive sessions. A headless `claude -p` session doesn't load `Artifact` at all, so the deny changes nothing there.
 
 ## Why deny `PowerShell` and keep `Bash`
 
