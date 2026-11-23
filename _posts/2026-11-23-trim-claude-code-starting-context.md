@@ -46,6 +46,9 @@ I ran `/context` in a fresh interactive session on Opus 5.5, once with the two d
 | System tools | 20.2k | 8.2k |
 | System prompt | 4.5k | 4.2k |
 | Skills | 5.5k | 5.5k |
+| Memory files | 2.0k | 2.0k |
+| MCP tools and server instructions | 1.4k | 1.4k |
+| Messages | 0.1k | 0.0k |
 | **Total** | **33.6k** | **21.2k** |
 
 The starting context drops by 37%, and almost all of the saving comes from tool definitions. The skills row doesn't move. The `artifact-design`, `artifact-diagramming`, and `artifact-capabilities` listings still load, at about 390 tokens together. A deny rule removes the tool, not the skills that describe it.
