@@ -37,21 +37,11 @@ Here is the block I add to `.claude/settings.json` in each project:
 
 Merge it with any deny rules you already have. Don't replace them.
 
-## The denies cut 12.4k tokens before the first prompt
+## The denies cut tool definitions from 20.2k to 8.2k tokens
 
-I ran `/context` in a fresh interactive session on Opus 5.5, once with the two denies and once without:
+I ran `/context` in a fresh interactive session on Opus 5.5, once with the two denies and once without. The **System tools** row dropped from 20.2k tokens to 8.2k. That is 12k tokens, or 59% of the tool definitions, gone before the first prompt.
 
-| Category | Without denies | With denies |
-| --- | --- | --- |
-| System tools | 20.2k | 8.2k |
-| System prompt | 4.5k | 4.2k |
-| Skills | 5.5k | 5.5k |
-| Memory files | 2.0k | 2.0k |
-| MCP tools and server instructions | 1.4k | 1.4k |
-| Messages | 0.1k | 0.0k |
-| **Total** | **33.6k** | **21.2k** |
-
-The starting context drops by 37%, and almost all of the saving comes from tool definitions. The skills row doesn't move. The `artifact-design`, `artifact-diagramming`, and `artifact-capabilities` listings still load, at about 390 tokens together. A deny rule removes the tool, not the skills that describe it.
+The skills row doesn't move. The `artifact-design`, `artifact-diagramming`, and `artifact-capabilities` listings still load, at about 390 tokens together. A deny rule removes the tool, not the skills that describe it.
 
 The saving applies only to interactive sessions. A headless `claude -p` session doesn't load `Artifact` at all, so the deny changes nothing there.
 
